@@ -1,7 +1,12 @@
+import java.util.List;
+
 public class Partida {
 
     private int numAleatorio, numAleatorio2;
-
+    private static int idPartida;
+    private static int tipoPartida;
+    private static int numJugadores;
+    private static List<String> listaJugadores;
 
     private int aleatorioInvitado() {
         numAleatorio = (int) (Math.random()*6 + 1);
@@ -14,8 +19,6 @@ public class Partida {
     }
 
     public void partida() {
-        System.out.println(aleatorioHost());
-        System.out.println(aleatorioInvitado());
 
         if (numAleatorio > numAleatorio2) {
             System.out.println("Jugador Invitado gana");
