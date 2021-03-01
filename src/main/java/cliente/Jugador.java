@@ -1,3 +1,5 @@
+package cliente;
+
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -7,7 +9,7 @@ public class Jugador extends Thread {
     private Partida partida;
 
     public Jugador(int i) {
-        this.setName("Jugador " + String.valueOf(i));
+        this.setName("cliente.Jugador " + String.valueOf(i));
     }
 
     public void run() {

@@ -1,3 +1,8 @@
+package servidor;
+
+import entities.Partida;
+import entities.TipoPartida;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -6,12 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Servidor {
-    private Map<Integer, String> mapaEspera = new HashMap<>();  // mapa(idPartida, partida en juego)?
-    private Map<String, String> mapaJuego = new HashMap<>();   //  mapa(tipo, partidas espera)?
-
-    public static void main(String []args) throws IOException {
-        inicia();
-    }
+    private Map<TipoPartida, Partida> mapaEspera = new HashMap<>();  // mapa(tipo, partida en juego)
+    private Map<Integer, Partida> mapaJuego = new HashMap<>();   //  mapa(idPartida, partidas espera)
 
     public static void inicia() throws IOException {
         Socket newSocket = null;

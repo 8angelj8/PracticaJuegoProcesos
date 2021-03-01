@@ -1,3 +1,5 @@
+package cliente;
+
 import java.util.concurrent.Semaphore;
 
 public class JugadorSocketStream {
