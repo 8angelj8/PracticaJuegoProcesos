@@ -1,18 +1,16 @@
 package servidor;
 
-import entities.Partida;
 import entities.TipoPartida;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.Semaphore;
 
 public class Servidor {
-    private Map<TipoPartida, Partida> mapaEspera = new HashMap<>();  // mapa(tipo, partida en juego)
-    private Map<Integer, Partida> mapaJuego = new HashMap<>();   //  mapa(idPartida, partidas espera)
+    public static Semaphore mutex = new Semaphore(1);
+    public static Semaphore dadosJugadores = new Semaphore(1 - (TipoPartida.JUEGO.getNumJugadores() - 1));
 
     public static void inicia() throws IOException {
         Socket newSocket = null;
