@@ -1,11 +1,16 @@
 import java.util.List;
 
-public class Partida {
+public class Partida implements Runnable{
 
     private static int idPartida;
+    private static int nextId=0;
     private static int tipoPartida;
     private static int numJugadores;
     private static List<String> listaJugadores;
+
+    public Partida (){
+
+    }
 
     public static int getIdPartida() {
         return idPartida;
@@ -38,5 +43,15 @@ public class Partida {
     public static void setListaJugadores(List<String> listaJugadores) {
         Partida.listaJugadores = listaJugadores;
     }
+
+    public int nextId() {
+        this.nextId++;
+        return this.nextId();
+    }
+    @Override
+    public void run() {
+
+    }
+
 
 }
